@@ -1,8 +1,10 @@
 trigger:
-  - main
+  branches:
+    include:
+      - main
 
 pool:
-  name: "Azure Pipelines"
+  name: 'Azure Pipelines'
 
 stages:
   - stage: Build
@@ -16,11 +18,11 @@ stages:
               pytest -v
             displayName: "Run Unit Tests"
 
-          - task: Docker@2
-            inputs:
-              command: "buildAndPush"
-              repository: "vedangj044/recitation3fastapi:latest"
-              dockerfile: "**/Dockerfile"
-              tags: |
-                latest
-              containerRegistry: "dockerhub"
+          # - task: Docker@2
+          #   inputs:
+          #     command: "buildAndPush"
+          #     repository: "vedangj044/recitation3fastapi:latest"
+          #     dockerfile: "**/Dockerfile"
+          #     tags: |
+          #       latest
+          #     containerRegistry: "dockerhub"
