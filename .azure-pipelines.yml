@@ -22,7 +22,7 @@ stages:
         - task: Docker@2
           inputs:
             command: "buildAndPush"
-            repository: "vedangj044/recitation3fastapi:latest"
+            repository: "vedangj044/recitation3fastapi"
             dockerfile: "Dockerfile"
             tags: |
               latest
