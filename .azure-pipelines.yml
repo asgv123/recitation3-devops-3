@@ -44,8 +44,8 @@ stages:
             steps:
             - script: |
                 docker pull vedangj044/recitation3fastapi:latest
-                docker stop fastapi-prod || true
-                docker rm fastapi-prod || true
+                docker stop fastapi-dev || true
+                docker rm fastapi-dev || true
                 docker run --rm -d --restart=always -p 80:8000 --name fastapi-dev vedangj044/recitation3fastapi:latest
               displayName: "Run FastAPI Container on Dev VM"
 
@@ -68,5 +68,5 @@ stages:
                 docker pull vedangj044/recitation3fastapi:latest
                 docker stop fastapi-prod || true
                 docker rm fastapi-prod || true
-                docker run --rm -d --restart=always -p 80:8000 --name fastapi-dev vedangj044/recitation3fastapi:latest
+                docker run --rm -d --restart=always -p 80:8000 --name fastapi-prod vedangj044/recitation3fastapi:latest
               displayName: "Run FastAPI Container on Prod VM"
