@@ -34,7 +34,9 @@ stages:
     jobs:
     - deployment: DeployDev
       displayName: "Deploy to Dev VM"
-      environment: "fastapi"
+      environment: 
+        name: "fastapi"
+        tags: "dev"
       strategy:
         runOnce:
           deploy:
@@ -56,7 +58,9 @@ stages:
     jobs:
     - deployment: DeployProd
       displayName: "Deploy to Prod VM"
-      environment: "fastapi"
+      environment: 
+        name: "fastapi"
+        tags: "prod"
       strategy:
         runOnce:
           deploy:
