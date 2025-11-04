@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Most Valuable Companies</title>
+    <style>
+      body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 40px; }
+      .card { background: white; padding: 20px; border-radius: 12px; margin: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+      .card h3 { margin: 0; }
+    </style>
+  </head>
+  <body>
+    <h1>Most Valuable Companies</h1>
+    {% for company in companies %}
+    <div class="card">
+      <h3>{{ company.name }}</h3>
+      <p>Valuation: {{ company.valuation }}</p>
+    </div>
+    {% endfor %}
+  </body>
+</html>
