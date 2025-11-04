@@ -44,12 +44,9 @@ stages:
             steps:
             - script: |
                 docker pull vedangj044/recitation3fastapi:latest
-                echo "Deploying FastAPI as a persistent service..."
-                sudo systemd-run --unit=fastapi-dev-docker \
-                  docker run --rm -d -p 80:8000 --name fastapi-dev \
-                  vedangj044/recitation3fastapi:latest
-                sleep 5
-                docker ps
+                docker stop fastapi-prod || true
+                docker rm fastapi-prod || true
+                docker run -d --restart=always -p 80:8000 --name fastapi-dev vedangj044/recitation3fastapi:latest
               displayName: "Run FastAPI Container on Dev VM"
 
   - stage: DeployProd
